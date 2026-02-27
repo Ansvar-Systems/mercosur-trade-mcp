@@ -1,5 +1,5 @@
 import type Database from '@ansvar/mcp-sqlite';
-import { BLOCS, countryName } from './common.js';
+import { BLOCS } from './common.js';
 import { buildMeta } from '../utils/metadata.js';
 
 export function about(db: InstanceType<typeof Database>) {

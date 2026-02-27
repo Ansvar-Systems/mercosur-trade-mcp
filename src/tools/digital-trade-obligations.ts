@@ -22,7 +22,6 @@ export function checkDigitalTradeObligations(
 
   // Build a query that finds obligations where the countries field contains
   // any of the requested country codes
-  const placeholders = codes.map(() => '?').join(', ');
   const likeConditions = codes.map(() => 'dto.countries LIKE ?').join(' OR ');
   const likeParams = codes.map((code) => `%${code}%`);
 

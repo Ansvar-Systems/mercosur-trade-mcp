@@ -1,5 +1,5 @@
 import type Database from '@ansvar/mcp-sqlite';
-import { BLOCS, type BlocId, countryName, clampLimit } from './common.js';
+import { BLOCS, type BlocId, countryName } from './common.js';
 import { buildMeta } from '../utils/metadata.js';
 
 export interface GetTradeBlocRulesInput {
