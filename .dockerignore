@@ -1,0 +1,8 @@
+node_modules
+.git
+.github
+.vercel
+*.md
+!README.md
+tests
+coverage

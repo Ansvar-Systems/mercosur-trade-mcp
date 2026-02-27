@@ -1,5 +1,5 @@
 import type Database from '@ansvar/mcp-sqlite';
-import { clampLimit, escapeFTS5Query } from './common.js';
+import { clampLimit, buildFtsQuery } from './common.js';
 import { buildMeta } from '../utils/metadata.js';
 
 export interface SearchAgreementsInput {
@@ -11,7 +11,21 @@ export interface SearchAgreementsInput {
 
 export function searchAgreements(db: InstanceType<typeof Database>, input: SearchAgreementsInput) {
   const limit = clampLimit(input.limit);
-  const ftsQuery = escapeFTS5Query(input.query);
+  const ftsQuery = buildFtsQuery(input.query);
+
+  if (!ftsQuery) {
+    return {
+      query: input.query,
+      filters: {
+        countries: input.countries ?? null,
+        topic: input.topic ?? null,
+      },
+      count: 0,
+      results: [],
+      _metadata: buildMeta(),
+      message: 'Query is empty or contains only special characters.',
+    };
+  }
 
   let sql = `
     SELECT p.id, p.agreement_id, p.article_ref, p.title, p.chapter, p.topic,
@@ -53,6 +67,6 @@ export function searchAgreements(db: InstanceType<typeof Database>, input: Searc
     },
     count: filtered.length,
     results: filtered,
-    _meta: buildMeta(),
+    _metadata: buildMeta(),
   };
 }

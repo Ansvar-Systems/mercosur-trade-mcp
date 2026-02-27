@@ -20,6 +20,6 @@ export function listSources(db: InstanceType<typeof Database>) {
       agreements: agreementCount,
       provisions: provisionCount,
     },
-    _meta: buildMeta(),
+    _metadata: buildMeta(),
   };
 }

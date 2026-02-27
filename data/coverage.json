@@ -9,12 +9,12 @@
       "url": "https://www.mercosur.int",
       "jurisdiction": "Mercosur",
       "type": "treaty",
-      "status": "pending",
-      "agreements": 0,
-      "provisions": 0,
+      "status": "complete",
+      "agreements": 6,
+      "provisions": 80,
       "refresh_schedule": "monthly",
-      "last_refresh": null,
-      "next_refresh": null
+      "last_refresh": "2026-02-27",
+      "next_refresh": "2026-03-27"
     },
     {
       "id": "pacific-alliance",
@@ -22,12 +22,12 @@
       "url": "https://alianzapacifico.net",
       "jurisdiction": "Pacific Alliance",
       "type": "trade_agreement",
-      "status": "pending",
-      "agreements": 0,
-      "provisions": 0,
+      "status": "complete",
+      "agreements": 2,
+      "provisions": 24,
       "refresh_schedule": "monthly",
-      "last_refresh": null,
-      "next_refresh": null
+      "last_refresh": "2026-02-27",
+      "next_refresh": "2026-03-27"
     },
     {
       "id": "prosur",
@@ -35,19 +35,37 @@
       "url": "https://prosuramerica.org",
       "jurisdiction": "PROSUR",
       "type": "cooperation_framework",
-      "status": "pending",
-      "agreements": 0,
-      "provisions": 0,
+      "status": "complete",
+      "agreements": 1,
+      "provisions": 10,
       "refresh_schedule": "monthly",
-      "last_refresh": null,
-      "next_refresh": null
+      "last_refresh": "2026-02-27",
+      "next_refresh": "2026-03-27"
+    },
+    {
+      "id": "bilateral-agreements",
+      "name": "Bilateral Trade Agreements",
+      "url": null,
+      "jurisdiction": "LATAM",
+      "type": "bilateral",
+      "status": "complete",
+      "agreements": 1,
+      "provisions": 12,
+      "refresh_schedule": "quarterly",
+      "last_refresh": "2026-02-27",
+      "next_refresh": "2026-05-27"
     }
   ],
   "totals": {
-    "agreements": 0,
-    "provisions": 0,
-    "sources": 3,
-    "tools": 9
+    "agreements": 10,
+    "provisions": 126,
+    "data_transfer_rules": 15,
+    "mutual_recognition": 22,
+    "digital_trade_obligations": 25,
+    "sources": 4,
+    "trade_blocs": 3,
+    "tools": 9,
+    "status": "complete"
   },
   "gaps": [
     "Historical treaty versions not yet included",
