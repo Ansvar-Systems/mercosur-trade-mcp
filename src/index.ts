@@ -35,6 +35,7 @@ const TOOLS = [
       properties: {
         query: {
           type: 'string',
+          minLength: 1,
           description: 'Search query (e.g., "data localization", "digital services", "customs union")',
         },
         countries: {

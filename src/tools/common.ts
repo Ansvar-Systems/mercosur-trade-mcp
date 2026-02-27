@@ -82,9 +82,29 @@ export function clampLimit(limit: number | undefined, fallback = DEFAULT_LIMIT):
   return Math.min(Math.max(Math.trunc(value), 1), MAX_LIMIT);
 }
 
-/** Escape characters that have special meaning in FTS5 queries. */
+/**
+ * Build a robust FTS5 query from user input.
+ * - Strips FTS5 special chars
+ * - Adds prefix matching (word*) for cross-language partial matching
+ * - Returns null for empty/whitespace-only input
+ */
+export function buildFtsQuery(raw: string): string | null {
+  const cleaned = raw
+    .replace(/["\*\(\)\{\}\[\]:^~!@#$%&|\\<>=;,]/g, ' ')
+    .replace(/\b(AND|OR|NOT|NEAR)\b/gi, '')
+    .trim();
+
+  if (!cleaned) return null;
+
+  const tokens = cleaned.split(/\s+/).filter(t => t.length > 0);
+  if (tokens.length === 0) return null;
+
+  return tokens.map(t => `"${t}"*`).join(' ');
+}
+
+/** @deprecated Use buildFtsQuery instead */
 export function escapeFTS5Query(query: string): string {
-  return query.replace(/[()^*:]/g, (char) => `"${char}"`);
+  return buildFtsQuery(query) ?? '';
 }
 
 /** Number of days since a date string, or null if unparseable. */
