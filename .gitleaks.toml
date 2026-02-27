@@ -1,0 +1,30 @@
+# Gitleaks configuration for Mercosur Trade MCP
+# https://github.com/gitleaks/gitleaks
+
+title = "Mercosur Trade MCP - Secret Detection"
+
+[extend]
+# Use default gitleaks rules
+useDefault = true
+
+[allowlist]
+description = "Known false positives and example credentials"
+
+# Example/development tokens in documentation
+regexes = [
+  '''dev-token''',
+  '''example-token''',
+  '''your-token-here''',
+  '''<password>''',
+  '''user:pass''',
+  '''postgres:postgres''',
+  ''':\*\*\*@''',
+]
+
+# Files to skip
+paths = [
+  '''tests/fixtures/.*''',
+  '''examples/.*''',
+  '''\.dev\.vars$''',
+  '''\.env\.local$''',
+]

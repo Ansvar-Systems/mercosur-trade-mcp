@@ -1,0 +1,70 @@
+{
+  "name": "mercosur-trade-mcp",
+  "version": "0.1.0",
+  "generated": "2026-02-27",
+  "sources": [
+    {
+      "id": "mercosur-secretariat",
+      "name": "Secretaria del Mercosur",
+      "url": "https://www.mercosur.int",
+      "jurisdiction": "Mercosur",
+      "type": "treaty",
+      "status": "pending",
+      "agreements": 0,
+      "provisions": 0,
+      "refresh_schedule": "monthly",
+      "last_refresh": null,
+      "next_refresh": null
+    },
+    {
+      "id": "pacific-alliance",
+      "name": "Alianza del Pacifico",
+      "url": "https://alianzapacifico.net",
+      "jurisdiction": "Pacific Alliance",
+      "type": "trade_agreement",
+      "status": "pending",
+      "agreements": 0,
+      "provisions": 0,
+      "refresh_schedule": "monthly",
+      "last_refresh": null,
+      "next_refresh": null
+    },
+    {
+      "id": "prosur",
+      "name": "Foro para el Progreso de America del Sur",
+      "url": "https://prosuramerica.org",
+      "jurisdiction": "PROSUR",
+      "type": "cooperation_framework",
+      "status": "pending",
+      "agreements": 0,
+      "provisions": 0,
+      "refresh_schedule": "monthly",
+      "last_refresh": null,
+      "next_refresh": null
+    }
+  ],
+  "totals": {
+    "agreements": 0,
+    "provisions": 0,
+    "sources": 3,
+    "tools": 9
+  },
+  "gaps": [
+    "Historical treaty versions not yet included",
+    "Observer state agreements not covered",
+    "Pending ratifications not tracked",
+    "ALADI/LAIA full treaty archive (planned v0.3)",
+    "Domestic implementing legislation (covered by national Law MCPs)"
+  ],
+  "tools": [
+    "search_agreements",
+    "get_provision",
+    "get_data_transfer_rules",
+    "get_mutual_recognition",
+    "get_trade_bloc_rules",
+    "check_digital_trade_obligations",
+    "list_sources",
+    "about",
+    "check_data_freshness"
+  ]
+}

@@ -1,0 +1,41 @@
+# Data sources for Mercosur Trade MCP
+# Each source maps to a table in the SQLite database.
+# Ingestion scripts use this file to determine fetch targets.
+
+sources:
+  mercosur-secretariat:
+    name: "Secretaria del Mercosur"
+    url: "https://www.mercosur.int"
+    jurisdiction: "Mercosur"
+    type: treaty
+    description: >
+      Official repository of Mercosur treaties, protocols, CMC decisions,
+      and GMC resolutions. Includes Treaty of Asuncion, Protocol of Ouro Preto,
+      Protocol of Olivos, and digital trade decisions.
+    license: public_domain
+    update_frequency: monthly
+    language: ["es", "pt"]
+
+  pacific-alliance:
+    name: "Alianza del Pacifico"
+    url: "https://alianzapacifico.net"
+    jurisdiction: "Pacific Alliance"
+    type: trade_agreement
+    description: >
+      Framework Agreement, Additional Protocol, digital trade chapters,
+      and amendments. Covers Chile, Colombia, Mexico, and Peru.
+    license: public_domain
+    update_frequency: monthly
+    language: ["es"]
+
+  prosur:
+    name: "Foro para el Progreso de America del Sur"
+    url: "https://prosuramerica.org"
+    jurisdiction: "PROSUR"
+    type: cooperation_framework
+    description: >
+      Santiago Declaration and cooperation frameworks for South American
+      integration. Successor to UNASUR for participating states.
+    license: public_domain
+    update_frequency: monthly
+    language: ["es", "pt"]

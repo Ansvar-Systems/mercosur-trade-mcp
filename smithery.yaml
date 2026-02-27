@@ -1,0 +1,17 @@
+startCommand:
+  type: stdio
+  configSchema:
+    type: object
+    properties:
+      MERCOSUR_TRADE_DB_PATH:
+        type: string
+        description: "Path to the SQLite database file. Uses bundled database if not set."
+  commandFunction:
+    |-
+    (config) => ({
+      command: 'npx',
+      args: ['@anthropic-ai/mercosur-trade-mcp'],
+      env: {
+        MERCOSUR_TRADE_DB_PATH: config.MERCOSUR_TRADE_DB_PATH ?? ''
+      }
+    })

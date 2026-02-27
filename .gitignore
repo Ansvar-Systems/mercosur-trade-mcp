@@ -1,0 +1,47 @@
+# Dependencies
+node_modules/
+
+# Build output
+dist/
+
+# Database (rebuilt from source)
+data/database.db
+data/database.db-wal
+data/database.db-shm
+
+# Raw ingestion data
+data/raw/
+
+# Ingestion state files
+.ingest-changed
+.ingest-summary
+.freshness-report
+.freshness-stale
+data/.source-hashes.json
+
+# Environment
+.env
+.env.local
+.dev.vars
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Test coverage
+coverage/
+.vitest/
+
+# Vercel
+.vercel/
+
+# Logs
+*.log
+npm-debug.log*

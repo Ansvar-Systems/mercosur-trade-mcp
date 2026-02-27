@@ -1,0 +1,58 @@
+{
+  "name": "@anthropic-ai/mercosur-trade-mcp",
+  "version": "0.1.0",
+  "description": "Mercosur and LATAM trade agreements MCP — cross-border data transfers, mutual recognition, digital trade obligations. Part of the Ansvar MCP Network (ansvar.ai/mcp)",
+  "type": "module",
+  "main": "dist/index.js",
+  "bin": {
+    "mercosur-trade-mcp": "dist/index.js"
+  },
+  "files": [
+    "dist",
+    "data/database.db"
+  ],
+  "scripts": {
+    "build": "tsc",
+    "build:db": "tsx scripts/build-db.ts",
+    "dev": "tsx src/index.ts",
+    "start": "node dist/index.js",
+    "test": "vitest run",
+    "ingest": "tsx scripts/ingest.ts",
+    "check-updates": "tsx scripts/check-updates.ts",
+    "lint": "tsc --noEmit",
+    "validate": "npm run lint && npm test"
+  },
+  "dependencies": {
+    "@ansvar/mcp-sqlite": "^1.0.0",
+    "@modelcontextprotocol/sdk": "^1.12.1"
+  },
+  "devDependencies": {
+    "@vercel/node": "^5.6.6",
+    "@types/node": "^22.15.29",
+    "tsx": "^4.21.0",
+    "typescript": "^5.7.0",
+    "vitest": "^3.0.0",
+    "@vitest/coverage-v8": "^3.0.0"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Ansvar-Systems/mercosur-trade-mcp.git"
+  },
+  "author": "Ansvar Systems AB <hello@ansvar.ai>",
+  "license": "Apache-2.0",
+  "keywords": [
+    "mcp",
+    "mercosur",
+    "trade",
+    "pacific-alliance",
+    "latam",
+    "data-transfer",
+    "digital-trade"
+  ],
+  "publishConfig": {
+    "access": "public"
+  }
+}

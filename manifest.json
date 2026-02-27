@@ -1,0 +1,33 @@
+{
+  "name": "mercosur-trade-mcp",
+  "version": "0.1.0",
+  "description": "Mercosur and LATAM trade agreements MCP -- cross-border data transfers, mutual recognition, digital trade obligations",
+  "author": "Ansvar Systems AB",
+  "license": "Apache-2.0",
+  "repository": "https://github.com/Ansvar-Systems/mercosur-trade-mcp",
+  "transport": ["stdio", "streamable-http"],
+  "tools": [
+    "search_agreements",
+    "get_provision",
+    "get_data_transfer_rules",
+    "get_mutual_recognition",
+    "get_trade_bloc_rules",
+    "check_digital_trade_obligations",
+    "list_sources",
+    "about",
+    "check_data_freshness"
+  ],
+  "tool_count": 9,
+  "tags": [
+    "mercosur",
+    "trade",
+    "pacific-alliance",
+    "latam",
+    "data-transfer"
+  ],
+  "data_sources": [
+    "mercosur-secretariat",
+    "pacific-alliance",
+    "prosur"
+  ]
+}
