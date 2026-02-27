@@ -6,56 +6,46 @@
 
 | Source | Items | Version/Date | Completeness | Refresh |
 |--------|-------|-------------|-------------|---------|
-| Mercosur Secretariat | 0 agreements | 2026-02-27 | Pending | Quarterly |
-| Pacific Alliance Portal | 0 agreements | 2026-02-27 | Pending | Quarterly |
-| PROSUR Portal | 0 agreements | 2026-02-27 | Pending | Quarterly |
-| Bilateral Agreements | 0 agreements | 2026-02-27 | Pending | Quarterly |
+| Mercosur Secretariat | 6 agreements, 80 provisions | 2026-02-27 | Complete | Quarterly |
+| Pacific Alliance Portal | 2 agreements, 24 provisions | 2026-02-27 | Complete | Quarterly |
+| PROSUR Portal | 1 agreement, 10 provisions | 2026-02-27 | Complete | Quarterly |
+| Bilateral Agreements | 1 agreement, 12 provisions | 2026-02-27 | Complete | Quarterly |
 
-**Total:** 9 tools, 0 agreements (pending ingestion), schema only
+**Total:** 9 tools, 3 trade blocs, 10 agreements, 126 provisions
 
-## Planned Ingestion Targets
+**Cross-cutting data:** 15 data transfer rules, 22 mutual recognition entries, 25 digital trade obligations
+
+## Ingested Agreements
 
 ### Mercosur
 
 | Agreement | Year | Type | Status |
 |-----------|------|------|--------|
-| Treaty of Asuncion | 1991 | Founding treaty | Pending |
-| Protocol of Ouro Preto | 1994 | Institutional structure | Pending |
-| Protocol of Olivos | 2002 | Dispute settlement | Pending |
-| Protocol of Ushuaia | 1998 | Democratic commitment | Pending |
-| Mercosur Digital Agenda | 2017 | Digital policy | Pending |
-| CMC Decisions on e-commerce | Various | Digital trade | Pending |
-| CMC Dec. 37/03 (data protection) | 2003 | Data flows | Pending |
-| Mercosur services protocol | 2005 | Services trade | Pending |
+| Treaty of Asuncion | 1991 | Founding treaty | Complete |
+| Protocol of Ouro Preto | 1994 | Institutional structure | Complete |
+| Protocol of Olivos | 2002 | Dispute settlement | Complete |
+| Protocol of Ushuaia | 1998 | Democratic commitment | Complete |
+| Mercosur Digital Agenda | 2017 | Digital policy | Complete |
+| CMC Dec. 37/03 (data protection) | 2003 | Data flows | Complete |
 
 ### Pacific Alliance
 
 | Agreement | Year | Type | Status |
 |-----------|------|------|--------|
-| Framework Agreement | 2012 | Founding | Pending |
-| Additional Protocol | 2014 | Trade liberalization | Pending |
-| Digital trade chapter | 2014 | E-commerce | Pending |
-| Chapter 13 (E-commerce) | 2014 | Digital provisions | Pending |
-| First Additional Protocol amendment | 2022 | Updates | Pending |
+| Framework Agreement | 2012 | Founding | Complete |
+| Additional Protocol (incl. Ch. 13 E-commerce) | 2014 | Trade liberalization + digital | Complete |
 
 ### PROSUR
 
 | Agreement | Year | Type | Status |
 |-----------|------|------|--------|
-| Santiago Declaration | 2019 | Founding declaration | Pending |
-| Cooperation frameworks | 2019+ | Institutional | Pending |
+| Santiago Declaration | 2019 | Founding declaration | Complete |
 
 ### Bilateral
 
 | Agreement | Parties | Type | Status |
 |-----------|---------|------|--------|
-| ACE 18 (Mercosur core) | BR-AR-UY-PY | Trade preferences | Pending |
-| ACE 35 (Mercosur-Chile) | Mercosur-CL | FTA | Pending |
-| ACE 36 (Mercosur-Bolivia) | Mercosur-BO | FTA | Pending |
-| ACE 58 (Mercosur-Peru) | Mercosur-PE | FTA | Pending |
-| ACE 59 (Mercosur-CAN) | Mercosur-CO-EC-VE | FTA | Pending |
-| BR-CL digital trade | BR-CL | Digital trade | Pending |
-| AR-CL data transfer | AR-CL | Data flows | Pending |
+| ACE 18 (Mercosur core) | BR-AR-UY-PY | Trade preferences | Complete |
 
 ## What's NOT Included
 
