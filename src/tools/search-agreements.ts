@@ -22,7 +22,7 @@ export function searchAgreements(db: InstanceType<typeof Database>, input: Searc
       },
       count: 0,
       results: [],
-      _meta: buildMeta(),
+      _metadata: buildMeta(),
       message: 'Query is empty or contains only special characters.',
     };
   }
@@ -67,6 +67,6 @@ export function searchAgreements(db: InstanceType<typeof Database>, input: Searc
     },
     count: filtered.length,
     results: filtered,
-    _meta: buildMeta(),
+    _metadata: buildMeta(),
   };
 }

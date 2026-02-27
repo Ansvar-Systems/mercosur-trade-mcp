@@ -14,7 +14,7 @@ export function checkDigitalTradeObligations(
     return {
       found: false,
       message: 'At least one country code is required.',
-      _meta: buildMeta(),
+      _metadata: buildMeta(),
     };
   }
 
@@ -40,7 +40,7 @@ export function checkDigitalTradeObligations(
       found: false,
       countries: codes.map((code) => ({ code, name: countryName(code) })),
       message: `No digital trade obligations found for ${codes.map(countryName).join(', ')}.`,
-      _meta: buildMeta(),
+      _metadata: buildMeta(),
     };
   }
 
@@ -49,6 +49,6 @@ export function checkDigitalTradeObligations(
     countries: codes.map((code) => ({ code, name: countryName(code) })),
     count: obligations.length,
     obligations,
-    _meta: buildMeta(),
+    _metadata: buildMeta(),
   };
 }

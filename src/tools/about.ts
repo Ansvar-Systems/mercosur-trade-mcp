@@ -46,6 +46,6 @@ export function about(db: InstanceType<typeof Database>) {
       name: 'Ansvar MCP Network',
       directory: 'https://ansvar.ai/mcp',
     },
-    _meta: buildMeta(),
+    _metadata: buildMeta(),
   };
 }

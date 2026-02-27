@@ -47,7 +47,7 @@ export function getMutualRecognition(
       country_b_name: countryName(b),
       domain: input.domain ?? null,
       message: `No mutual recognition agreements found between ${countryName(a)} and ${countryName(b)}${domainMsg}.`,
-      _meta: buildMeta(),
+      _metadata: buildMeta(),
     };
   }
 
@@ -60,6 +60,6 @@ export function getMutualRecognition(
     domain: input.domain ?? null,
     count: rows.length,
     agreements: rows,
-    _meta: buildMeta(),
+    _metadata: buildMeta(),
   };
 }

@@ -23,13 +23,13 @@ export function getProvision(db: InstanceType<typeof Database>, input: GetProvis
       agreement_id: input.agreement_id,
       article: input.article,
       message: `No provision found for article "${input.article}" in agreement "${input.agreement_id}".`,
-      _meta: buildMeta(),
+      _metadata: buildMeta(),
     };
   }
 
   return {
     found: true,
     provision: row,
-    _meta: buildMeta(),
+    _metadata: buildMeta(),
   };
 }

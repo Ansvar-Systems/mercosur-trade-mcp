@@ -18,7 +18,7 @@ export function getTradeBlocRules(
       found: false,
       bloc: input.bloc,
       message: `Unknown trade bloc "${input.bloc}". Valid values: mercosur, pacific_alliance, prosur.`,
-      _meta: buildMeta(),
+      _metadata: buildMeta(),
     };
   }
 
@@ -64,6 +64,6 @@ export function getTradeBlocRules(
       items: agreements,
     },
     provisions_count: provisionCount,
-    _meta: buildMeta(),
+    _metadata: buildMeta(),
   };
 }

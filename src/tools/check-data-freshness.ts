@@ -67,6 +67,6 @@ export function checkDataFreshness(db: InstanceType<typeof Database>) {
     total_sources: sources.length,
     sources: freshness,
     blocs: blocFreshness,
-    _meta: buildMeta(),
+    _metadata: buildMeta(),
   };
 }
