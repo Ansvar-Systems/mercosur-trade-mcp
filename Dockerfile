@@ -1,16 +1,26 @@
-FROM node:20-alpine AS builder
+FROM node:24-alpine AS builder
 WORKDIR /app
-COPY package*.json ./
+COPY package.json package-lock.json ./
 RUN npm ci
-COPY . .
+COPY src/ ./src/
+COPY scripts/ ./scripts/
+COPY data/ ./data/
+COPY tsconfig.json ./
 RUN npm run build
+RUN npm run build:db
 
-FROM node:20-alpine
+FROM node:24-alpine AS production
 WORKDIR /app
+COPY package.json package-lock.json ./
+RUN npm ci --omit=dev && npm cache clean --force
+RUN addgroup -g 1001 -S nodejs && adduser -S nodejs -u 1001
 COPY --from=builder /app/dist ./dist
-COPY --from=builder /app/data/database.db ./data/database.db
-COPY --from=builder /app/node_modules ./node_modules
-COPY --from=builder /app/package.json ./package.json
+COPY --from=builder /app/data/ ./data/
+RUN chown -R nodejs:nodejs /app
+USER nodejs
 ENV NODE_ENV=production
+ENV PORT=3000
 EXPOSE 3000
-CMD ["node", "dist/index.js"]
+HEALTHCHECK --interval=30s --timeout=3s --start-period=10s --retries=3 \
+  CMD node -e "require('http').get('http://localhost:' + process.env.PORT + '/health', (r) => {process.exit(r.statusCode === 200 ? 0 : 1)})"
+CMD ["node", "dist/http-server.js"]
