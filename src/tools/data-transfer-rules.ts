@@ -1,6 +1,7 @@
 import type Database from '@ansvar/mcp-sqlite';
 import { countryName } from './common.js';
 import { buildMeta } from '../utils/metadata.js';
+import { buildCitation } from '../citation.js';
 
 export interface GetDataTransferRulesInput {
   source_country: string;
@@ -53,6 +54,12 @@ export function getDataTransferRules(
     dest_country_name: countryName(dst),
     reversed_lookup: reversed,
     rules: row,
+    _citation: buildCitation(
+      `Data transfer ${src}-${dst}`,
+      `Data transfer rules: ${countryName(src)} to ${countryName(dst)}`,
+      'get_data_transfer_rules',
+      { source_country: input.source_country, dest_country: input.dest_country },
+    ),
     _metadata: buildMeta(),
   };
 }

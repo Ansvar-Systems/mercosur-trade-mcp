@@ -1,6 +1,7 @@
 import type Database from '@ansvar/mcp-sqlite';
 import { BLOCS, type BlocId, countryName } from './common.js';
 import { buildMeta } from '../utils/metadata.js';
+import { buildCitation } from '../citation.js';
 
 export interface GetTradeBlocRulesInput {
   bloc: string;
@@ -64,6 +65,12 @@ export function getTradeBlocRules(
       items: agreements,
     },
     provisions_count: provisionCount,
+    _citation: buildCitation(
+      blocInfo.name,
+      blocInfo.full_name,
+      'get_trade_bloc_rules',
+      { bloc: input.bloc },
+    ),
     _metadata: buildMeta(),
   };
 }

@@ -1,6 +1,7 @@
 import type Database from '@ansvar/mcp-sqlite';
 import { countryName } from './common.js';
 import { buildMeta } from '../utils/metadata.js';
+import { buildCitation } from '../citation.js';
 
 export interface GetMutualRecognitionInput {
   country_a: string;
@@ -60,6 +61,12 @@ export function getMutualRecognition(
     domain: input.domain ?? null,
     count: rows.length,
     agreements: rows,
+    _citation: buildCitation(
+      `MRA ${a}-${b}`,
+      `Mutual recognition: ${countryName(a)} and ${countryName(b)}`,
+      'get_mutual_recognition',
+      { country_a: input.country_a, country_b: input.country_b, ...(input.domain ? { domain: input.domain } : {}) },
+    ),
     _metadata: buildMeta(),
   };
 }
