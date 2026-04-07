@@ -1,5 +1,6 @@
 import type Database from '@ansvar/mcp-sqlite';
 import { buildMeta } from '../utils/metadata.js';
+import { buildCitation } from '../citation.js';
 
 export interface GetProvisionInput {
   agreement_id: string;
@@ -27,9 +28,17 @@ export function getProvision(db: InstanceType<typeof Database>, input: GetProvis
     };
   }
 
+  const r = row as Record<string, unknown>;
   return {
     found: true,
     provision: row,
+    _citation: buildCitation(
+      `${input.agreement_id} Art. ${input.article}`,
+      `Article ${input.article} of ${r['agreement_title'] ?? input.agreement_id}`,
+      'get_provision',
+      { agreement_id: input.agreement_id, article: input.article },
+      r['source_url'] as string | undefined,
+    ),
     _metadata: buildMeta(),
   };
 }

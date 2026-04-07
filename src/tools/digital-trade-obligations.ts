@@ -1,6 +1,7 @@
 import type Database from '@ansvar/mcp-sqlite';
 import { countryName } from './common.js';
 import { buildMeta } from '../utils/metadata.js';
+import { buildCitation } from '../citation.js';
 
 export interface CheckDigitalTradeObligationsInput {
   countries: string[];
@@ -48,7 +49,15 @@ export function checkDigitalTradeObligations(
     found: true,
     countries: codes.map((code) => ({ code, name: countryName(code) })),
     count: obligations.length,
-    obligations,
+    obligations: obligations.map((o) => ({
+      ...o,
+      _citation: buildCitation(
+        `${o['agreement_id']} ${o['obligation']}`,
+        String(o['obligation'] ?? o['agreement_id']),
+        'check_digital_trade_obligations',
+        { countries: input.countries },
+      ),
+    })),
     _metadata: buildMeta(),
   };
 }

@@ -1,6 +1,7 @@
 import type Database from '@ansvar/mcp-sqlite';
 import { clampLimit, buildFtsQuery } from './common.js';
 import { buildMeta } from '../utils/metadata.js';
+import { buildCitation } from '../citation.js';
 
 export interface SearchAgreementsInput {
   query: string;
@@ -66,7 +67,15 @@ export function searchAgreements(db: InstanceType<typeof Database>, input: Searc
       topic: input.topic ?? null,
     },
     count: filtered.length,
-    results: filtered,
+    results: filtered.map((r) => ({
+      ...r,
+      _citation: buildCitation(
+        `${r['agreement_id']} Art. ${r['article_ref']}`,
+        String(r['title'] ?? `Article ${r['article_ref']}`),
+        'get_provision',
+        { agreement_id: String(r['agreement_id']), article: String(r['article_ref']) },
+      ),
+    })),
     _metadata: buildMeta(),
   };
 }
