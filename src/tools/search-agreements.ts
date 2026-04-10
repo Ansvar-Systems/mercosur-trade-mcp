@@ -22,7 +22,7 @@ export function searchAgreements(db: InstanceType<typeof Database>, input: Searc
       },
       count: 0,
       results: [],
-      _metadata: buildMeta(),
+      _meta: buildMeta(),
       message: 'Query is empty or contains only special characters.',
     };
   }
@@ -59,14 +59,22 @@ export function searchAgreements(db: InstanceType<typeof Database>, input: Searc
     });
   }
 
+  const resultsWithCitation = filtered.map((row) => ({
+    ...row,
+    _citation: {
+      canonical_ref: `${row['agreement_id']}/Art.${row['article_ref']}`,
+      lookup: { tool: 'get_provision' },
+    },
+  }));
+
   return {
     query: input.query,
     filters: {
       countries: input.countries ?? null,
       topic: input.topic ?? null,
     },
-    count: filtered.length,
-    results: filtered,
-    _metadata: buildMeta(),
+    count: resultsWithCitation.length,
+    results: resultsWithCitation,
+    _meta: buildMeta(),
   };
 }
