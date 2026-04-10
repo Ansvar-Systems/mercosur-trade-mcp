@@ -47,9 +47,15 @@ export function getMutualRecognition(
       country_b_name: countryName(b),
       domain: input.domain ?? null,
       message: `No mutual recognition agreements found between ${countryName(a)} and ${countryName(b)}${domainMsg}.`,
-      _metadata: buildMeta(),
+      _error_type: 'not_found',
+      _meta: buildMeta(),
     };
   }
+
+  const agreementsWithCitation = rows.map((row) => ({
+    ...row,
+    _citation: { lookup: { tool: 'get_mutual_recognition' } },
+  }));
 
   return {
     found: true,
@@ -58,8 +64,8 @@ export function getMutualRecognition(
     country_b: b,
     country_b_name: countryName(b),
     domain: input.domain ?? null,
-    count: rows.length,
-    agreements: rows,
-    _metadata: buildMeta(),
+    count: agreementsWithCitation.length,
+    agreements: agreementsWithCitation,
+    _meta: buildMeta(),
   };
 }

@@ -41,7 +41,8 @@ export function getDataTransferRules(
       dest_country: dst,
       dest_country_name: countryName(dst),
       message: `No data transfer rules found between ${countryName(src)} and ${countryName(dst)}.`,
-      _metadata: buildMeta(),
+      _error_type: 'not_found',
+      _meta: buildMeta(),
     };
   }
 
@@ -53,6 +54,10 @@ export function getDataTransferRules(
     dest_country_name: countryName(dst),
     reversed_lookup: reversed,
     rules: row,
-    _metadata: buildMeta(),
+    _citation: {
+      canonical_ref: `data-transfer/${src}-${dst}`,
+      lookup: { tool: 'get_data_transfer_rules' },
+    },
+    _meta: buildMeta(),
   };
 }

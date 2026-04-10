@@ -14,7 +14,7 @@ export function checkDigitalTradeObligations(
     return {
       found: false,
       message: 'At least one country code is required.',
-      _metadata: buildMeta(),
+      _meta: buildMeta(),
     };
   }
 
@@ -40,15 +40,21 @@ export function checkDigitalTradeObligations(
       found: false,
       countries: codes.map((code) => ({ code, name: countryName(code) })),
       message: `No digital trade obligations found for ${codes.map(countryName).join(', ')}.`,
-      _metadata: buildMeta(),
+      _error_type: 'not_found',
+      _meta: buildMeta(),
     };
   }
+
+  const obligationsWithCitation = obligations.map((row) => ({
+    ...row,
+    _citation: { lookup: { tool: 'check_digital_trade_obligations' } },
+  }));
 
   return {
     found: true,
     countries: codes.map((code) => ({ code, name: countryName(code) })),
-    count: obligations.length,
-    obligations,
-    _metadata: buildMeta(),
+    count: obligationsWithCitation.length,
+    obligations: obligationsWithCitation,
+    _meta: buildMeta(),
   };
 }
