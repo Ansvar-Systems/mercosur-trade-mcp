@@ -23,13 +23,19 @@ export function getProvision(db: InstanceType<typeof Database>, input: GetProvis
       agreement_id: input.agreement_id,
       article: input.article,
       message: `No provision found for article "${input.article}" in agreement "${input.agreement_id}".`,
-      _metadata: buildMeta(),
+      _error_type: 'not_found',
+      _meta: buildMeta(),
     };
   }
 
+  const provision = row as Record<string, unknown>;
   return {
     found: true,
-    provision: row,
-    _metadata: buildMeta(),
+    provision,
+    _citation: {
+      canonical_ref: `${provision['agreement_id']}/Art.${provision['article_ref']}`,
+      lookup: { tool: 'get_provision' },
+    },
+    _meta: buildMeta(),
   };
 }
